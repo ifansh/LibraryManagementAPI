@@ -1,0 +1,36 @@
+﻿@model LibraryManagementAPI.Models.User
+
+<div class="d-flex justify-content-center mt-5">
+    <div class="card w-50">
+        <div class="card-body">
+            <h2 class="card-title text-center">Edit User</h2>
+
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="UID" /> <!-- Hidden field to store StudentID -->
+
+                <div class="form-group mb-4">
+                    <label asp-for="FullName" class="control-label"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

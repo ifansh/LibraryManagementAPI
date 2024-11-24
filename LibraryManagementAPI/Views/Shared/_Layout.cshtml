@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LibraryManagementAPI</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/LibraryManagementAPI.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #5f94e6, #8ea8ff);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: white !important;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .nav-link {
+            color: #f1f1f1 !important;
+            transition: color 0.3s;
+        }
+
+            .nav-link:hover {
+                color: #e3e3e3 !important;
+            }
+
+        .dropdown-item:hover {
+            background-color: lightgrey !important;
+        }
+
+        .footer {
+            background: linear-gradient(90deg, #5f94e6, #8ea8ff);
+            color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+        }
+
+            .footer a {
+                color: #f1f1f1;
+                text-decoration: underline;
+            }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light">
+            <div class="container-fluid position-relative">
+                <a class="navbar-brand w-100 text-center" asp-area="" asp-controller="Home" asp-action="Index" style="font-size: 2rem; color: white !important;">LibraryManagementAPI</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-list" style="font-size: 2rem; width: 100%; text-align: center;"></i> <!-- Changed to hamburger menu icon -->
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Users" asp-action="Index">Manage Users</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Books" asp-action="Index">Manage Books</a></li>
+                                
+               
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="FAQ">FAQ</a></li> <!-- Added FAQ to the dropdown menu -->
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer border-top text-muted">
+        <div class="container">
+            <span style="color: #333;">&copy; 2024</span> - <span style="color: #333;">LibraryManagementAPI</span> - <a asp-area="" asp-controller="Home" asp-action="Privacy">About Us</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

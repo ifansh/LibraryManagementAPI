@@ -1,0 +1,81 @@
+﻿@model IEnumerable<LibraryManagementAPI.Models.Book>
+
+<h2 class="text-center mb-4 mt-5" style="font-family: 'Poppins', sans-serif; color: #333;">Books List</h2>
+
+<div class="card shadow-lg border-0" style="border-radius: 15px;">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead style="background: linear-gradient(45deg, #6ab7ff, #4fc3f7); color: white;">
+                <tr>
+                    <th>Book ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model)
+                {
+                    <tr>
+                        <td>@book.BookID</td>
+                        <td>@book.Title</td>
+                        <td>@book.Author</td>
+                        <td>@book.Publisher</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@book.BookID" class="btn btn-outline-primary" style="border-radius: 20px;">
+                                <i class="bi bi-pencil-fill"></i> Edit
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@book.BookID" class="btn btn-outline-danger" style="border-radius: 20px;">
+                                <i class="bi bi-trash-fill"></i> Delete
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="text-center mt-5">
+    <a asp-action="Create" class="btn btn-success btn-lg" style="border-radius: 25px; background: linear-gradient(45deg, #66bb6a, #43a047); border: none;">
+        <i class="bi bi-plus-lg"></i> Add New Book
+    </a>
+</div>
+
+<!-- Additional Styling -->
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f9f9f9;
+        color: #444;
+    }
+
+    .card {
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .table th {
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    .btn {
+        transition: transform 0.3s ease;
+    }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+    .table tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+</style>
+
+<!-- Include Google Fonts and Bootstrap Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css" />

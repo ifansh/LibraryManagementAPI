@@ -1,0 +1,47 @@
+﻿@model LibraryManagementAPI.Models.Book
+
+<div class="d-flex justify-content-center mt-5">
+    <div class="card w-50" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <div class="card-body">
+            <h2 class="card-title text-center text-dark" style="font-weight: 600;">Delete Book</h2>
+
+            <h3 class="text-center text-danger" style="font-weight: 500;">Are you sure you want to delete this book?</h3>
+
+            <div class="mb-4">
+                <table class="table table-bordered text-center">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th style="font-weight: 600;">Item</th>
+                            <th style="font-weight: 600;">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: 500;">Book ID</td>
+                            <td>@Model.BookID</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500;">Title</td>
+                            <td>@Model.Title</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500;">Author</td>
+                            <td>@Model.Author</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: 500;">Publisher</td>
+                            <td>@Model.Publisher</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <form asp-action="Delete" method="post" class="text-center">
+                <input type="hidden" asp-for="BookID" />
+                <button type="submit" class="btn btn-danger btn-lg me-3" style="font-weight: 500;">Delete</button>
+                <a asp-action="Index" class="btn btn-secondary btn-lg" style="font-weight: 500;">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

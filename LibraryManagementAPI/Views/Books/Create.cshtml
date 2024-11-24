@@ -1,0 +1,36 @@
+﻿@model LibraryManagementAPI.Models.Book
+
+<div class="d-flex justify-content-center mt-5">
+    <div class="card w-50">
+        <div class="card-body">
+            <h2 class="card-title text-center">Create New Book</h2>
+
+            <form asp-action="Create" method="post">
+                <div class="form-group mb-4">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="Author" class="control-label"></label>
+                    <input asp-for="Author" class="form-control" />
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="Publisher" class="control-label"></label>
+                    <input asp-for="Publisher" class="form-control" />
+                    <span asp-validation-for="Publisher" class="text-danger"></span>
+                </div>
+
+
+
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
